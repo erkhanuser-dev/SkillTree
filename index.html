@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillTree — Cognitive Lab</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">S</div>
+      <div>
+        <strong>SKILLTREE</strong>
+        <span>COGNITIVE LAB</span>
+      </div>
+    </div>
+
+    <nav>
+      <button class="nav-btn active" data-section="profile">YOU</button>
+      <button class="nav-btn" data-section="experiments">EXPERIMENTS</button>
+      <button class="nav-btn" data-section="tree">SKILL TREE</button>
+      <button class="nav-btn" data-section="archive">ARCHIVE</button>
+    </nav>
+
+    <div class="level-mini">
+      <span>LVL</span>
+      <b id="headerLevel">1</b>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PROFILE -->
+    <section id="profile" class="section active-section">
+
+      <div class="profile-hero">
+
+        <div class="hero-copy">
+          <div class="eyebrow">YOUR COGNITIVE PROFILE</div>
+
+          <h1>You are still<br><em>being discovered.</em></h1>
+
+          <p>
+            SkillTree doesn't ask you what kind of thinker you are.
+            It watches how you solve problems — and builds your profile from it.
+          </p>
+
+          <button class="primary-btn" data-section="experiments">
+            START AN EXPERIMENT
+            <span>→</span>
+          </button>
+        </div>
+
+        <div class="level-card">
+          <div class="level-number" id="bigLevel">01</div>
+          <div class="level-label">CURRENT LEVEL</div>
+
+          <div class="xp-track">
+            <div id="xpBar"></div>
+          </div>
+
+          <div class="xp-row">
+            <span id="xpText">0 / 100 XP</span>
+            <span id="nextLevel">100 XP</span>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="profile-grid">
+
+        <div class="type-card">
+          <div class="card-top">
+            <span class="tiny-label">CURRENT LAB TYPE</span>
+            <span class="pulse-dot"></span>
+          </div>
+
+          <div class="type-name" id="personalityType">
+            UNDISCOVERED
+          </div>
+
+          <p id="personalityDescription">
+            Complete experiments to discover how your mind naturally works.
+          </p>
+
+          <div class="trait-tags" id="traitTags">
+            <span>?</span>
+            <span>?</span>
+            <span>?</span>
+          </div>
+        </div>
+
+
+        <div class="dna-card">
+          <div class="card-top">
+            <span class="tiny-label">MIND DNA</span>
+            <span class="dna-percent" id="dnaPercent">0%</span>
+          </div>
+
+          <div class="dna-list">
+
+            <div class="dna-row">
+              <div>
+                <span>ANALYSIS</span>
+                <b id="analysisValue">20</b>
+              </div>
+              <div class="dna-track">
+                <i id="analysisBar"></i>
+              </div>
+            </div>
+
+            <div class="dna-row">
+              <div>
+                <span>CREATIVITY</span>
+                <b id="creativityValue">20</b>
+              </div>
+              <div class="dna-track">
+                <i id="creativityBar"></i>
+              </div>
+            </div>
+
+            <div class="dna-row">
+              <div>
+                <span>ARGUMENT</span>
+                <b id="argumentValue">20</b>
+              </div>
+              <div class="dna-track">
+                <i id="argumentBar"></i>
+              </div>
+            </div>
+
+            <div class="dna-row">
+              <div>
+                <span>MEMORY</span>
+                <b id="memoryValue">20</b>
+              </div>
+              <div class="dna-track">
+                <i id="memoryBar"></i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="discoveries-card">
+          <div class="card-top">
+            <span class="tiny-label">DISCOVERIES</span>
+            <span id="discoveryCount">0</span>
+          </div>
+
+          <div id="discoveries">
+            <div class="empty-discovery">
+              <span>+</span>
+              <p>Your first cognitive trait will appear here.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="progress-strip">
+        <div>
+          <span>EXPERIMENTS COMPLETED</span>
+          <strong id="completedCount">0</strong>
+        </div>
+
+        <div>
+          <span>MISTAKES ANALYZED</span>
+          <strong id="mistakeCount">0</strong>
+        </div>
+
+        <div>
+          <span>SKILLS UNLOCKED</span>
+          <strong id="skillCount">0</strong>
+        </div>
+
+        <div>
+          <span>XP EARNED</span>
+          <strong id="totalXp">0</strong>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- EXPERIMENTS -->
+    <section id="experiments" class="section">
+
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">THE LAB</div>
+          <h2>Choose an experiment.</h2>
+        </div>
+
+        <p>
+          Don't study first.<br>
+          Try first.
+        </p>
+      </div>
+
+
+      <div class="experiment-grid">
+
+        <button class="experiment-card" data-mode="daily">
+          <div class="experiment-number">01</div>
+          <div class="experiment-icon">◌</div>
+          <h3>Daily Experiment</h3>
+          <p>A fresh problem designed to reveal how you think.</p>
+          <span class="card-arrow">→</span>
+        </button>
+
+        <button class="experiment-card" data-mode="battle">
+          <div class="experiment-number">02</div>
+          <div class="experiment-icon">VS</div>
+          <h3>Duel Chamber</h3>
+          <p>Take the same challenge from two different perspectives.</p>
+          <span class="card-arrow">→</span>
+        </button>
+
+        <button class="experiment-card" data-mode="ai">
+          <div class="experiment-number">03</div>
+          <div class="experiment-icon">AI</div>
+          <h3>AI vs You</h3>
+          <p>The machine gives an answer. Your job is to challenge it.</p>
+          <span class="card-arrow">→</span>
+        </button>
+
+        <button class="experiment-card" data-mode="real">
+          <div class="experiment-number">04</div>
+          <div class="experiment-icon">◎</div>
+          <h3>Real World</h3>
+          <p>Use reasoning on situations that could actually happen.</p>
+          <span class="card-arrow">→</span>
+        </button>
+
+        <button class="experiment-card" data-mode="argue">
+          <div class="experiment-number">05</div>
+          <div class="experiment-icon">!</div>
+          <h3>Argue the Internet</h3>
+          <p>Find the weakest part of a confident-looking argument.</p>
+          <span class="card-arrow">→</span>
+        </button>
+
+        <button class="experiment-card special-card" data-mode="memory">
+          <div class="experiment-number">06</div>
+          <div class="experiment-icon">↻</div>
+          <h3>Lost Knowledge</h3>
+          <p>Can you retrieve something your brain has already seen?</p>
+          <span class="card-arrow">→</span>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- TREE -->
+    <section id="tree" class="section">
+
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">YOUR DEVELOPMENT</div>
+          <h2>Skill Tree</h2>
+        </div>
+        <p>Your abilities grow from what you actually do.</p>
+      </div>
+
+      <div class="tree-container">
+
+        <div class="tree-line line-one"></div>
+        <div class="tree-line line-two"></div>
+        <div class="tree-line line-three"></div>
+
+        <div class="skill-node central-node unlocked">
+          <span>YOU</span>
+          <small>LVL <b id="treeLevel">1</b></small>
+        </div>
+
+        <div class="skill-node node-analysis">
+          <span>ANALYSIS</span>
+          <small id="treeAnalysis">20%</small>
+        </div>
+
+        <div class="skill-node node-creativity">
+          <span>CREATIVITY</span>
+          <small id="treeCreativity">20%</small>
+        </div>
+
+        <div class="skill-node node-argument">
+          <span>ARGUMENT</span>
+          <small id="treeArgument">20%</small>
+        </div>
+
+        <div class="skill-node node-memory">
+          <span>MEMORY</span>
+          <small id="treeMemory">20%</small>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ARCHIVE -->
+    <section id="archive" class="section">
+
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">MEMORY BANK</div>
+          <h2>Archive</h2>
+        </div>
+        <p>Your mistakes aren't deleted.<br>They're turned into data.</p>
+      </div>
+
+      <div class="archive-box">
+        <div class="archive-symbol">↻</div>
+        <h3 id="archiveTitle">Nothing forgotten yet.</h3>
+        <p id="archiveText">
+          Every interesting mistake you make will eventually return as a challenge.
+        </p>
+      </div>
+
+      <div class="mistake-list" id="mistakeList"></div>
+
+      <button class="reset-btn" id="resetBtn">RESET LAB DATA</button>
+
+    </section>
+
+  </main>
+
+
+  <!-- NOVA -->
+  <!-- NOVA -->
+<div id="nova" class="nova">
+
+  <div class="nova-character" id="novaDrag">
+
+    <div class="nova-aura"></div>
+
+    <svg class="nova-svg" viewBox="0 0 180 220">
+
+      <!-- floating star -->
+      <path class="star star1"
+        d="M145 32 l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/>
+
+      <path class="star star2"
+        d="M28 82 l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/>
+
+      <!-- hair back -->
+      <path class="hair-back"
+        d="M42 89
+           C32 51 52 19 91 18
+           C132 17 151 48 139 91
+           L126 119
+           L50 117 Z"/>
+
+      <!-- face -->
+      <ellipse class="face"
+        cx="90"
+        cy="79"
+        rx="38"
+        ry="43"/>
+
+      <!-- hair -->
+      <path class="hair-front"
+        d="M50 73
+           C48 44 67 28 91 29
+           C116 29 133 44 133 70
+           C124 59 115 53 105 56
+           C95 59 88 48 79 58
+           C70 67 61 70 50 73Z"/>
+
+      <!-- side hair -->
+      <path class="hair-lock"
+        d="M51 66 C37 88 44 116 62 128
+           C55 103 57 84 64 67Z"/>
+
+      <path class="hair-lock"
+        d="M127 66 C142 88 137 112 121 126
+           C126 101 124 83 118 66Z"/>
+
+      <!-- eyes -->
+      <ellipse class="eye-white" cx="73" cy="82" rx="10" ry="8"/>
+      <ellipse class="eye-white" cx="107" cy="82" rx="10" ry="8"/>
+
+      <ellipse class="eye" cx="75" cy="83" rx="4.5" ry="5"/>
+      <ellipse class="eye" cx="105" cy="83" rx="4.5" ry="5"/>
+
+      <circle class="eye-shine" cx="76.5" cy="81" r="1.7"/>
+      <circle class="eye-shine" cx="106.5" cy="81" r="1.7"/>
+
+      <!-- blush -->
+      <ellipse class="blush" cx="61" cy="96" rx="8" ry="3"/>
+      <ellipse class="blush" cx="119" cy="96" rx="8" ry="3"/>
+
+      <!-- tiny mouth -->
+      <path class="mouth"
+        d="M84 101 Q90 106 96 101"/>
+
+      <!-- neck -->
+      <path class="neck"
+        d="M82 113 L82 121 L98 121 L98 113"/>
+
+      <!-- lab coat -->
+      <path class="coat"
+        d="M61 117
+           C70 112 80 110 90 110
+           C101 110 112 113 120 117
+           L139 190
+           L41 190 Z"/>
+
+      <!-- lavender shirt -->
+      <path class="shirt"
+        d="M79 113 L90 132 L101 113
+           L96 162 L84 162 Z"/>
+
+      <!-- coat details -->
+      <line class="coat-line"
+        x1="90" y1="133"
+        x2="90" y2="183"/>
+
+      <circle class="button" cx="90" cy="148" r="2"/>
+      <circle class="button" cx="90" cy="159" r="2"/>
+
+      <!-- little pocket -->
+      <path class="pocket"
+        d="M103 151 L123 151 L120 174 L105 174 Z"/>
+
+      <!-- hand -->
+      <circle class="hand" cx="127" cy="145" r="9"/>
+
+      <!-- tablet -->
+      <rect class="tablet"
+        x="117" y="130"
+        width="29"
+        height="42"
+        rx="5"/>
+
+      <line class="tablet-line"
+        x1="123" y1="142"
+        x2="140" y2="142"/>
+
+      <line class="tablet-line"
+        x1="123" y1="149"
+        x2="137" y2="149"/>
+
+      <circle class="tablet-dot"
+        cx="130"
+        cy="159"
+        r="3"/>
+
+      <!-- shoes -->
+      <path class="shoe"
+        d="M49 187
+           C40 188 34 194 37 199
+           C42 204 61 203 67 198
+           L65 190Z"/>
+
+      <path class="shoe"
+        d="M112 190
+           C116 199 131 203 139 199
+           C144 195 136 189 127 187Z"/>
+
+    </svg>
+
+    <div class="nova-name">NOVA</div>
+
+  </div>
+
+  <button class="nova-chat" id="novaChat" aria-label="Talk to Nova">
+    ?
+  </button>
+
+</div>
+
+  <!-- MISSION MODAL -->
+  <div class="mission-overlay" id="missionOverlay">
+
+    <div class="mission-window">
+
+      <button class="close-mission" id="closeMission">×</button>
+
+      <div class="mission-meta">
+        <span id="missionMode">EXPERIMENT</span>
+        <span id="timer">60</span>
+      </div>
+
+      <div class="mission-content">
+
+        <div class="mission-number" id="missionNumber">01</div>
+
+        <h2 id="missionTitle">Challenge</h2>
+
+        <p id="missionQuestion"></p>
+
+        <div class="answer-area">
+          <textarea
+            id="answerInput"
+            placeholder="Think first. Then write..."
+          ></textarea>
+
+          <div class="answer-bottom">
+            <button class="hint-btn" id="hintBtn">NEED A HINT?</button>
+
+            <button class="submit-btn" id="submitAnswer">
+              SUBMIT
+              <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="hint-box" id="hintBox"></div>
+
+        <div class="result-box" id="resultBox">
+
+          <div class="result-score">
+            <span>SCORE</span>
+            <strong id="resultScore">0</strong>
+          </div>
+
+          <div>
+            <div class="result-title" id="resultTitle"></div>
+            <p id="resultText"></p>
+          </div>
+
+          <button class="next-btn" id="nextMission">
+            CONTINUE →
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
